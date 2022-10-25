@@ -15,6 +15,11 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        <!-- Personal Syles-->
+        @yield('header-styles')
+        <!-- Personal Scriptsp-->
+        @yield('header-scripts')
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -40,5 +45,7 @@
         @stack('modals')
 
         @livewireScripts
+
+        @yield("end-scripts")
     </body>
 </html>

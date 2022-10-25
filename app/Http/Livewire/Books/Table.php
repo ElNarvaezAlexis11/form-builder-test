@@ -6,16 +6,44 @@ use App\Models\Book;
 use Livewire\Component;
 
 /**
- *@author Narvaez Ruiz Alexis
+ * @author Narvaez Ruiz Alexis
  */
 class Table extends Component
 {
-    public Book $books;
+    public $books;
+
+
+    public function delete(Book $book)
+    {
+        if (!is_null($book)) {
+            $book->delete();
+            $this->emit('book-deleted');
+            $this->books = Book::all();
+        }
+    }
+
+    public function load()
+    {
+        $this->books = Book::all();
+    }
+
+    /**
+     * | ---------------------------------------| 
+     * | 
+     * | Funciones del ciclo de vida 
+     * | 
+     * | ---------------------------------------| 
+     */
+
+    public function mount()
+    {
+        // $this->books = null;
+        $this->load();
+
+    }
 
     public function render()
     {
-        \Faker\Factory::create()->uuid();
-
         return view("livewire.books.table");
     }
 }
