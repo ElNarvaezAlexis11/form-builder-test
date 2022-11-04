@@ -27,7 +27,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable(false);
             $table->date('release');
-            $table->string('resume')->nullable(false);
+            $table->text('resume')->nullable(false);
             $table->timestamps();
         });
     }

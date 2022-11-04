@@ -4,27 +4,29 @@ namespace App\Http\Livewire\Books;
 
 use App\Models\Book;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 /**
  * @author Narvaez Ruiz Alexis
  */
 class Table extends Component
 {
-    public $books;
+    use WithPagination;
 
+    public $orderBy;
 
     public function delete(Book $book)
     {
         if (!is_null($book)) {
             $book->delete();
             $this->emit('book-deleted');
-            $this->books = Book::all();
+            // $this->books = Book::all();
         }
     }
 
-    public function load()
+    public function loadBooks()
     {
-        $this->books = Book::all();
+        return Book::orderBy($this->orderBy, 'asc')->paginate(10);
     }
 
     /**
@@ -37,13 +39,13 @@ class Table extends Component
 
     public function mount()
     {
-        // $this->books = null;
-        $this->load();
-
+        $this->orderBy = 'id';
     }
 
     public function render()
     {
-        return view("livewire.books.table");
+        return view("livewire.books.table", [
+            'books' => $this->loadBooks()
+        ]);
     }
 }

@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\Document;
+use App\Actions\Jetstream\AddTeamMember;
+use App\Actions\Jetstream\CreateTeam;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,14 @@ class DatabaseSeeder extends Seeder
         $this->call(PaintingsSeeder::class);
         $this->call(DocumentSeeder::class);
         $this->call(SubTitleDocumentSeeder::class);
-       
+        $this->call(BookSeeder::class);
+
+        $user = User::factory()->create();
+        $team = Team::factory()->create();
+        $user->teams()->attach($team,[
+            'role' => 'editor'
+        ]);
+        $user->switchTeam($team);
+    
     }
 }

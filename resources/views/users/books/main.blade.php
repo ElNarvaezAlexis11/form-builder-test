@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('header-scripts')
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @endsection
     <x-slot name="header">
         <div class="container-sub-header flex">
@@ -14,6 +14,16 @@
                 <x-jet-nav-link href="{{ route('books.create') }}" :active="request()->routeIs('books.create')">
                     {{ __('Add') }}
                 </x-jet-nav-link>
+                @if(request()->routeIs('books.edit'))
+                <x-jet-nav-link href="" :active="true">
+                    {{ __('Edit') }}
+                </x-jet-nav-link>
+                @endif
+                @if(request()->routeIs('books.show'))
+                <x-jet-nav-link href="" :active="true">
+                    {{ __('Show') }}
+                </x-jet-nav-link>
+                @endif
             </div>
         </div>
     </x-slot>
@@ -24,18 +34,9 @@
     </x-app.main-container>
 
     @section('end-scripts')
-        <script>
-        Livewire.on('book-deleted',e=>{
-            Swal.fire({
-                position: 'bottom-end',
-                icon: 'success',
-                title: 'Libro eliminado',
-                showConfirmButton: false,
-                timer: 1500,
-                toast:true
-            });
-        });
-        </script>
+    
+    @vite(['resources/js/events/books/index.js']) 
+
     @endsection
 
 </x-app-layout>

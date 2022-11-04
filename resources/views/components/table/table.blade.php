@@ -1,3 +1,4 @@
+{{-- https://tailwindcomponents.com/component/responsive-table-5 --}}
 <table {{$attributes}}>
     <thead>
         <x-table.trow type="rowHeader">
