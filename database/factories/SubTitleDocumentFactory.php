@@ -27,4 +27,12 @@ class SubTitleDocumentFactory extends Factory
             'content' => $this->faker->paragraph()
         ];
     }
+    public function withDocument(Document $document)
+    {
+        return $this->state(function (array $attributes) use ($document) {
+            return [
+                'document_id' => $document->id,
+            ];
+        });
+    }
 }

@@ -13,7 +13,7 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-        return view('users.documents.main');
+        return view('users.documents.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.documents.add');
     }
 
     /**

@@ -15,6 +15,7 @@ class PaintingsSeeder extends Seeder
      */
     public function run()
     {
-        Paintings::factory(1000)->create();
+        Paintings::factory(100)->create();
+        Paintings::factory(100)->withWidth(200)->create();
     }
 }

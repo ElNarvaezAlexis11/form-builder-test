@@ -22,7 +22,21 @@ class Document extends Model
      */
     public $incrementing = false;
 
-    public function getPartsBody(){
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
+    protected $fillable = [
+        'id',
+        'title'
+    ];
+
+    /**
+     * relationship with the BodyComponent model
+     */
+    public function partsBody(){
         return $this->hasMany(BodyComponent::class);
     }
+
 }

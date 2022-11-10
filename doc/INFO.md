@@ -10,3 +10,19 @@ al servidor de los componente de Livewire.
     Ruta para mostrar el listado de todos los pintores registrados en el sistema
 -   Documents
     Ruta para mostrar el listado de todos los documentos registrados en el sistema
+
+## Link importantes para la creacion de los formularios.
+- https://github.com/kirbyzone/formbuilder
+- https://gitlab.com/kirbyzone/formbuilder/-/wikis/home
+- https://gitlab.com/kirbyzone/formbuilder/-/wikis/Installation
+- https://github.com/kirbyzone/formbuilder
+- https://github.com/kirbyzone/formbuilder
+
+- https://www.npmjs.com/package/fl-form-builder
+- https://bpmn.io/toolkit/form-js/download/
+- https://www.npmjs.com/package/formeo
+
+- https://www.jqueryscript.net/demo/jQuery-Plugin-For-Online-Drag-Drop-Form-Builder/
+
+## Documentacion de formio.
+- https://help.form.io/userguide/forms

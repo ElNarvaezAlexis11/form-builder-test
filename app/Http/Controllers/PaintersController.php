@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Painter;
 use Illuminate\Http\Request;
 
 class PaintersController extends Controller
@@ -13,7 +14,7 @@ class PaintersController extends Controller
      */
     public function index()
     {
-        return view('users.painters.main');
+        return view('users.painters.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class PaintersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.painters.add');
     }
 
     /**
@@ -43,9 +44,9 @@ class PaintersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Painter $painter)
     {
-        //
+        return view('users.painters.show',compact('painter'));
     }
 
     /**
@@ -54,9 +55,9 @@ class PaintersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Painter $painter)
     {
-        //
+        return view('users.painters.edit',compact('painter'));
     }
 
     /**

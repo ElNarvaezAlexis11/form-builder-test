@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AnswerFormController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\PaintersController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +33,11 @@ Route::middleware([
     Route::resource('books',BooksController::class);
     Route::resource('painters',PaintersController::class);
     Route::resource('documents',DocumentsController::class);
+
+    
+    Route::get('forms/{form}/responser', [AnswerFormController::class,'response'])->name('forms.responser');
+    Route::post('forms/{form}/responser/store', [AnswerFormController::class,'store'])->name('forms.responser.store');
+    
+    Route::resource('forms',FormController::class);
 });
+  

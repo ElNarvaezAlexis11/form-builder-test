@@ -34,9 +34,9 @@
     </x-app.main-container>
 
     @section('end-scripts')
-    
-    @vite(['resources/js/events/books/index.js']) 
 
+    @vite('resources/js/events/books/index.js')
+    
     @endsection
 
 </x-app-layout>

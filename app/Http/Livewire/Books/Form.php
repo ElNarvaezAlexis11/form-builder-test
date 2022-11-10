@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Books;
 
+use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use Livewire\Component;
 
@@ -10,8 +11,14 @@ use Livewire\Component;
  */
 class Form extends Component
 {
-    public Book $book; # new Book();
-
+    /**
+     * | ----------------------------------- |
+     * | 
+     * | Variables principales 
+     * | 
+     * | ----------------------------------- |
+     */
+    public $book;
     /**
      * | ----------------------------------- |
      * | 
@@ -19,20 +26,39 @@ class Form extends Component
      * | 
      * | ----------------------------------- |
      */
-    private $editing = false;
+    public $editing = false;
 
-    protected $rules = [
-        'book.title' => 'required',
-        'book.release' => 'required',
-        'book.resume' => 'required'
-    ];
+    /**
+     * | -------------------------------------- |
+     * |
+     * | Reglas de Validacion
+     * |
+     * | -------------------------------------- |
+     */
+    public function rules()
+    {
+        return (new BookRequest())->rules();
+    }
 
+    /**
+     * | -------------------------------------- |
+     * |
+     * | Funciones
+     * |
+     * | -------------------------------------- |
+     */
     public function save()
     {
         $this->validate();
-        $this->book->save();
+        if($this->editing){
+            $book = Book::find($this->book['id']);
+            $book->fill($this->book);
+            $book->save();
+        }else{
+            Book::create($this->book);
+        }
         $this->emit('bookSaved');
-        $this->book = new Book();
+        $this->book = $this->initEmptyProperties();
         $this->resetErrorBag();
 
         if ($this->editing) {
@@ -40,9 +66,33 @@ class Form extends Component
         }
     }
 
-    public function mount()
+    public function convertToArray($book) : array
     {
-        $this->book = ($this->book->id)? $this->book: new Book();
+        if(!is_null($book->attributesToArray())  && $book->attributesToArray() != []){
+            return $book->attributesToArray();
+        }
+        return $this->initEmptyProperties();
+    }
+
+    private function initEmptyProperties() : array
+    {
+        return [
+            'title' => '',
+            'release' => '',
+            'resume' => ''
+        ];
+    }
+
+    /**
+     * | -------------------------------------- |
+     * | 
+     * |  Ciclo de vida del componente
+     * | 
+     * | -------------------------------------- |
+     */
+    public function mount($book)
+    {
+        $this->book = $this->convertToArray($book);
     }
 
     public function render()

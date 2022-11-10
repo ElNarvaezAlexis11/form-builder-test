@@ -68,16 +68,14 @@
                         <x-slot name="content">
                             <div class="">
                                 <x-jet-dropdown-link href="{{route('books.edit',$book->id )}}" class="flex">
-                                    <x-icons.pen class="text-xs mr-1 text-yellow-400" />{{ __('Edit') }}
+                                    <x-icons.pen class="text-xs mr-1 text-yellow-400 font-black" />{{ __('Edit') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{route('books.show',$book->id)}}" class="flex">
-                                    <x-icons.eye class="text-xs mr-1 text-blue-400" />{{ __('Show') }}
+                                    <x-icons.eye class="text-xs mr-1 text-blue-400 font-black" />{{ __('Show') }}
                                 </x-jet-dropdown-link>
-
                                 <x-jet-dropdown-link wire:click="delete({{$book->id}})" class="flex cursor-pointer">
-                                    <x-icons.trash class="text-xs mr-1 text-red-400" />{{__('Delete') }}
+                                    <x-icons.trash class="text-xs mr-1 text-red-400 font-black" />{{__('Delete') }}
                                 </x-jet-dropdown-link>
-
                             </div>
                         </x-slot>
                     </x-jet-dropdown>

@@ -11,8 +11,7 @@
         "laravel/jetstream": "^2.12",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.5",
-        "northwestern-sysdev/dynamic-forms": "^0.9.2"
+        "livewire/livewire": "^2.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -60,7 +59,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "getkirby/composer-installer": true
         }
     },
     "minimum-stability": "dev",
