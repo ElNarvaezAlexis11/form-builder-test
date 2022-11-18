@@ -54,7 +54,7 @@ class Form extends Component
         $this->resetErrorBag();
 
         if ($this->editing) {
-            $this->redirect(route('form.index'));
+            $this->redirect(route('forms.index'));
         }
     }
 

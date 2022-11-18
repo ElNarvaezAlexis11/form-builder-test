@@ -58,7 +58,7 @@ class FormController extends Controller
      */
     public function edit(Form $form)
     {
-        //
+        return view('users.forms.edit', compact('form'));
     }
 
     /**

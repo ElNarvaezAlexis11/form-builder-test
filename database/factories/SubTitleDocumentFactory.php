@@ -21,8 +21,7 @@ class SubTitleDocumentFactory extends Factory
             'id' => $this->faker->uuid(),
             'document_id' => Document::inRandomOrder()
                                 ->get()
-                                ->first()
-                                ->id,
+                                ->first(),
             'subTitle' => $this->faker->title(),
             'content' => $this->faker->paragraph()
         ];
