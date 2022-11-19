@@ -15,7 +15,7 @@ class Paintings extends Model
      */
     protected $table = 'paintings';
 
-    protected $fillable = ['name', 'width', 'height'];
+    protected $fillable = ['name', 'width', 'height', 'idPainter'];
 
     public function getPainter(){
         return $this->belongsTo(Painter::class,'idPainter');

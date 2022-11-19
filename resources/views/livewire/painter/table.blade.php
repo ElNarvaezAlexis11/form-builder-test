@@ -3,7 +3,7 @@
     <div class="px-4 mb-3 flex items-center justify-end w-full container-serach-field" x-data="{ focus: false }">
         <x-jet-input type="text" placeholder="buscar elementos" id="search-field" x-on:blur="focus = (document.getElementById('search-field').value)? true :false" x-show="focus" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-x-90" x-transition:enter-end="opacity-100 scale-x-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-x-100" x-transition:leave-end="opacity-0 scale-x-90" />
         <x-jet-label class="ml-4" for="search-field" @click="focus = true">
-            <x-icons.search />
+            <i class="bi bi-search"></i>
         </x-jet-label>
     </div>
     <!-- END INPUT SEARCH -->
@@ -14,9 +14,9 @@
                 <div class="w-full flex justify-between items-center">
                     <span>ID</span>
                     @if($orderBy === 'id')
-                    <x-icons.sort-alpha-down />
+                    <i class="bi bi-sort-alpha-down"></i>
                     @else
-                    <x-icons.sort-alpha-down-alt />
+                    <i class="bi bi-sort-alpha-down-alt"></i>
                     @endif
                 </div>
             </th>
@@ -24,9 +24,9 @@
                 <div class="w-full flex justify-between items-center">
                     <span>Name</span>
                     @if($orderBy === 'name')
-                    <x-icons.sort-alpha-down />
+                    <i class="bi bi-sort-alpha-down"></i>
                     @else
-                    <x-icons.sort-alpha-down-alt />
+                    <i class="bi bi-sort-alpha-down-alt"></i>
                     @endif
                 </div>
             </th>
@@ -34,9 +34,9 @@
                 <div class="w-full flex justify-between items-center">
                     <span>Age</span>
                     @if($orderBy === 'age')
-                    <x-icons.sort-alpha-down />
+                    <i class="bi bi-sort-alpha-down"></i>
                     @else
-                    <x-icons.sort-alpha-down-alt />
+                    <i class="bi bi-sort-alpha-down-alt"></i>
                     @endif
                 </div>
             </th>
@@ -44,9 +44,9 @@
                 <div class="w-full flex justify-between items-center">
                     <span>Awards</span>
                     @if($orderBy === 'awards')
-                    <x-icons.sort-alpha-down />
+                    <i class="bi bi-sort-alpha-down"></i>
                     @else
-                    <x-icons.sort-alpha-down-alt />
+                    <i class="bi bi-sort-alpha-down-alt"></i>
                     @endif
                 </div>
             </th>
@@ -54,9 +54,9 @@
                 <div class="w-full flex justify-between items-center">
                     <span>Record Date</span>
                     @if($orderBy === 'created_at')
-                    <x-icons.sort-numeric-down />
+                    <i class="bi bi-sort-numeric-down"></i>
                     @else
-                    <x-icons.sort-numeric-down-alt />
+                    <i class="bi bi-sort-numeric-down-alt"></i>
                     @endif
                 </div>
             </th>
@@ -76,18 +76,24 @@
                 <x-table.tdata>
                     <x-jet-dropdown align="right" width="60" dropdownClasses="!z-50">
                         <x-slot name="trigger">
-                            <x-icons.three-dots-vertical />
+                            <i class="bi bi-three-dots-vertical"></i>
                         </x-slot>
                         <x-slot name="content">
                             <div class="">
                                 <x-jet-dropdown-link href="{{route('painters.edit',$painter->id )}}" class="flex">
-                                    <x-icons.pen class="text-xs mr-1 text-yellow-400 font-black" />{{ __('Edit') }}
+                                    <span class="text-base mr-1 text-yellow-400 font-black">
+                                        <i class="bi bi-pen"></i>
+                                    </span>{{ __('Edit') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{route('painters.show',$painter->id)}}" class="flex">
-                                    <x-icons.eye class="text-xs mr-1 text-blue-400 font-black" />{{ __('Show') }}
+                                    <span class="text-base mr-1 text-blue-400 font-black">
+                                        <i class="bi bi-eye"></i>
+                                    </span>{{ __('Show') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link wire:click="delete({{$painter->id}})" class="flex cursor-pointer">
-                                    <x-icons.trash class="text-xs mr-1 text-red-400 font-black" />{{__('Delete') }}
+                                    <span class="text-base mr-1 text-red-400 font-black">
+                                        <i class="bi bi-trash"></i>
+                                    </span>{{__('Delete') }}
                                 </x-jet-dropdown-link>
                             </div>
                         </x-slot>

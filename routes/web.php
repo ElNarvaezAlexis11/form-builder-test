@@ -5,6 +5,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\DocumentsController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PaintersController;
+use App\Http\Controllers\PaintingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,9 +33,10 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('books',BooksController::class);
     Route::resource('painters',PaintersController::class);
+    Route::resource('paintings',PaintingController::class);
     Route::resource('documents',DocumentsController::class);
 
-    
+    //Experimental
     Route::get('forms/{form}/responser', [AnswerFormController::class,'response'])->name('forms.responser');
     Route::post('forms/{form}/responser/store', [AnswerFormController::class,'store'])->name('forms.responser.store');
     
