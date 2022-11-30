@@ -24,7 +24,7 @@ class PaintingsFactory extends Factory
             'name' => $this->faker->name(),
             'width' => $this->faker->numberBetween(100,300) * 1.0,
             'height' =>  $this->faker->numberBetween(100,300) * 1.0,
-            'idPainter' => Painter::inRandomOrder()->get()->first()
+            'idPainter' => null
         ];
     }
     public function withWidth($width)

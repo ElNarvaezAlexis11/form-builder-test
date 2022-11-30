@@ -1,10 +1,10 @@
 import Swal from 'sweetalert2'
 document.addEventListener('DOMContentLoaded', event => {
-    Livewire.on('documentDeleted', e => {
+    Livewire.on('paintingDeleted', e => {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Documento eliminado',
+            title: 'Pintura eliminado',
             showConfirmButton: false,
             timer: 1500,
             toast: true,

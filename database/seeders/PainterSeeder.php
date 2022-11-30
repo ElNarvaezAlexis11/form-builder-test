@@ -15,6 +15,6 @@ class PainterSeeder extends Seeder
      */
     public function run()
     {
-        Painter::factory(10)->create();
+        Painter::factory()->count(100)->create();
     }
 }
