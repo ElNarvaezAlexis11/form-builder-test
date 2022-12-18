@@ -5,7 +5,7 @@
     @section('header-scripts')
         <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
         <link rel='stylesheet' href='https://cdn.form.io/formiojs/formio.full.min.css'>
-        <script src='https://cdn.form.io/formiojs/formio.full.min.js'></script>
+        @vite('resources/js/users/forms/formio.full.min.js')
     @endsection
 
     <livewire:forms.form :form="new App\Models\Form()" />
