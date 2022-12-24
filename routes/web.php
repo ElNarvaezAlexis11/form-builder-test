@@ -6,6 +6,7 @@ use App\Http\Controllers\DocumentsController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PaintersController;
 use App\Http\Controllers\PaintingController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,5 +42,6 @@ Route::middleware([
     Route::post('forms/{form}/responser/store', [AnswerFormController::class,'store'])->name('forms.responser.store');
     
     Route::resource('forms',FormController::class);
+    Route::resource('test',TestController::class);
 });
   
